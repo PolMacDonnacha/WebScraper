@@ -1,0 +1,16 @@
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\bin\Debug\netcoreapp3.1\TestingScrapers.exe
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\bin\Debug\netcoreapp3.1\TestingScrapers.deps.json
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\bin\Debug\netcoreapp3.1\TestingScrapers.runtimeconfig.json
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\bin\Debug\netcoreapp3.1\TestingScrapers.runtimeconfig.dev.json
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\bin\Debug\netcoreapp3.1\TestingScrapers.dll
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\bin\Debug\netcoreapp3.1\TestingScrapers.pdb
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\obj\Debug\netcoreapp3.1\TestingScrapers.csprojAssemblyReference.cache
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\obj\Debug\netcoreapp3.1\TestingScrapers.AssemblyInfoInputs.cache
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\obj\Debug\netcoreapp3.1\TestingScrapers.AssemblyInfo.cs
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\obj\Debug\netcoreapp3.1\TestingScrapers.csproj.CoreCompileInputs.cache
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\obj\Debug\netcoreapp3.1\TestingScrapers.dll
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\obj\Debug\netcoreapp3.1\TestingScrapers.pdb
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\obj\Debug\netcoreapp3.1\TestingScrapers.genruntimeconfig.cache
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\bin\Debug\netcoreapp3.1\WebDriver.dll
+D:\000College Work\Year3\Semester1\WebProgramming2\TestingScrapers\obj\Debug\netcoreapp3.1\TestingScrapers.csproj.CopyComplete

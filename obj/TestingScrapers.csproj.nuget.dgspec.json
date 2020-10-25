@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\000College Work\\Year3\\Semester1\\WebProgramming2\\TestingScrapers\\TestingScrapers.csproj": {}
+  },
+  "projects": {
+    "D:\\000College Work\\Year3\\Semester1\\WebProgramming2\\TestingScrapers\\TestingScrapers.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\000College Work\\Year3\\Semester1\\WebProgramming2\\TestingScrapers\\TestingScrapers.csproj",
+        "projectName": "TestingScrapers",
+        "projectPath": "D:\\000College Work\\Year3\\Semester1\\WebProgramming2\\TestingScrapers\\TestingScrapers.csproj",
+        "packagesPath": "C:\\Users\\paulm\\.nuget\\packages\\",
+        "outputPath": "D:\\000College Work\\Year3\\Semester1\\WebProgramming2\\TestingScrapers\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\paulm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Selenium.Chrome.WebDriver": {
+              "target": "Package",
+              "version": "[85.0.0, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[3.141.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
