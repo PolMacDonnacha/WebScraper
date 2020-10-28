@@ -9,9 +9,8 @@ using static System.Console;
         static void Main(string[] args)
         {
             ChromeOptions options = new ChromeOptions(); 
-		options.AddArguments("headless"); 
-            int myindex = 0; // counts total number of records found on the website
-            //List<IWebElement> IWdatenames = new List<IWebElement>();
+		    options.AddArguments("headless"); 
+            int myindex = 0; // counts total number of mission records
             string[] urls = {
                 "http://spaceflightnow.com/launch-log-2004-2008/",
                  "http://spaceflightnow.com/launch-log-2009-2011/",
@@ -38,17 +37,18 @@ using static System.Console;
                 dateNameList = IWdatename.Reverse().ToList(); //inverts the order of the objects since previous pages have latest missions first
             }
 
-            IWebElement IWlaunchdate = driver.FindElement(By.ClassName("launchdate"));
-            IWebElement IWVehicleTitle = driver.FindElement(By.ClassName("mission"));//includes vehicle and name
+           
             foreach(var datename in dateNameList.Select(value => new {value}))
-            {           
+            {          
+            IWebElement IWlaunchdate = datename.value.FindElement(By.ClassName("launchdate"));
+            IWebElement IWVehicleTitle = datename.value.FindElement(By.ClassName("mission"));//includes vehicle and name 
             IWebElement IWmissionData = datename.value.FindElement(By.XPath("following-sibling::*[1]"));//launchtime and site
             IWebElement IWDescription = datename.value.FindElement(By.XPath("following-sibling::*[2]"));//Mission Description
              string VehicleAndTitle = IWVehicleTitle.Text.ToString();//convert to string for separation         
                 String[] missionSplt = VehicleAndTitle.Split('•',StringSplitOptions.RemoveEmptyEntries);
                 string vehicle = missionSplt[0];
                 string missionName = missionSplt[1];
-                WriteLine("{0} Mission Name: {1}",myindex, missionName);
+                WriteLine("\n{0} Mission Name: {1}",myindex, missionName);
                 WriteLine("Launch Vehicle: " + vehicle);
 
             string timeAndSite = IWmissionData.Text.ToString();
@@ -72,7 +72,7 @@ using static System.Console;
             }
             myindex++;
             }
-            
+
             driver.Quit();
             }
         }
