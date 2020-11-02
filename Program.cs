@@ -3,14 +3,18 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Linq;
 using System.Collections.Generic;
+using System.Globalization;
 using static System.Console;
-    class Program
+
+    public class Program
     {
+        
         static void Main(string[] args)
         {
+            
             ChromeOptions options = new ChromeOptions(); 
 		    options.AddArguments("headless"); 
-            int myindex = 0; // counts total number of mission records
+            int myindex = 1; // counts total number of mission records
             string[] urls = 
             {
                 "http://spaceflightnow.com/launch-log-2004-2008/",
@@ -27,6 +31,7 @@ using static System.Console;
             WriteLine("Page Title: " + driver.Title);
             IReadOnlyCollection<IWebElement> IWdatename = driver.FindElements(By.ClassName("datename"));//div holding mission records
             List<IWebElement> dateNameList = new List<IWebElement>();
+            DateTime prevMissionDate = new DateTime();
             if (url == "https://www.Spaceflightnow.com/launch-schedule/")
             {
                 dateNameList = IWdatename.ToList();
@@ -41,6 +46,7 @@ using static System.Console;
                 IWebElement IWVehicleTitle = datename.value.FindElement(By.ClassName("mission"));//includes vehicle and name 
                 IWebElement IWmissionData = datename.value.FindElement(By.XPath("following-sibling::*[1]"));//launchtime and site
                 IWebElement IWDescription = datename.value.FindElement(By.XPath("following-sibling::*[2]"));//Mission Description
+                IWebElement IWmissionYear = driver.FindElement(By.XPath("/html/body/div[1]/div[4]/div/div/article/div/p[2]/b/font"));//Contains the year so that it can be added onto datees that havent specified a year
                 string VehicleAndTitle = IWVehicleTitle.Text.ToString();//convert to string for separation         
                 String[] missionSplt = VehicleAndTitle.Split('•',StringSplitOptions.RemoveEmptyEntries);
                 string vehicle = missionSplt[0];
@@ -48,7 +54,48 @@ using static System.Console;
                 WriteLine("\n{0} Mission Name: {1}",myindex, missionName);
                 WriteLine("Launch Vehicle: " + vehicle);
                 string timeAndSite = IWmissionData.Text.ToString();
-                string launchDate = IWlaunchdate.Text.ToString();
+                string launchDate = IWlaunchdate.Text.ToString().ToUpper();
+                string[] monthnames = 
+                {
+                    "JAN","FEB","MAR","APR","MAY","JUN",
+                    "JUL","AUG","SEP","OCT","NOV","DEC"};                 
+                if (launchDate.Contains("/"))
+                {
+                    launchDate = launchDate.Remove(launchDate.IndexOf("/") -2, 3); //Removes the first Day date from the Date item example: Dec. 22/23, 2008
+                    WriteLine("Launch Date after day removal: " + launchDate);
+                }
+                if (launchDate.Contains("."))
+                {
+                     launchDate = launchDate.Remove(launchDate.IndexOf("."), 1);
+                      WriteLine("Launch Date after '.' removal: " + launchDate);
+                }
+                if (!launchDate.Contains(",")) //Adding year if it is missing
+                {
+                    string launchYear = string.Concat(", {0}",IWmissionYear.Text.ToString());
+                     launchDate = string.Concat(launchDate,launchYear);
+                      WriteLine("Launch Date with year added: " + launchDate);
+                }
+                 if (launchDate.Contains(","))//getting year from date
+                {
+                    string[] launchYearSplit = launchDate.Split(",",StringSplitOptions.RemoveEmptyEntries);
+                    string launchYear = launchYearSplit[1].Trim();
+                    WriteLine("Launch year trimmed: " + launchDate);
+                }
+                foreach(string month in monthnames)
+                {
+                   /* if (launchDate.Contains(month)) //getting month from date
+                    {
+                        DateTime dateMonth = DateTime.Parse(month);
+                        WriteLine(dateMonth);
+                        break;
+                    }
+                    else if(launchDate == "TBD"|| launchDate.Contains("NET"))
+                    {
+                        launchDate = prevMissionDate.AddDays(5).ToString();// If date does not include a month name, set date to five days after the last mission
+                        WriteLine("Date after adding 5 days");
+                    }*/
+                }
+               // DateTime date = DateTime.Parse(launchDate);//, "MMM dd, yyyy", CultureInfo.InvariantCulture);
                 if(timeAndSite.Contains("\n")) //edge case on page 2012-2014 where launchsite doesn't go to a new line, in else statement find closing bracket after time to separate
                 {
                     String[] timeSiteSplt = timeAndSite.Split("\n" ,StringSplitOptions.None); //separates the launch time from the launch site
@@ -70,5 +117,9 @@ using static System.Console;
             }
             driver.Quit();
         }
+       
     }
+   
+    
 }
+
